@@ -1,0 +1,42 @@
+C51 COMPILER V9.60.7.0   WATCHDOG                                                          01/27/2026 20:28:17 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE WATCHDOG
+OBJECT MODULE PLACED IN .\Objects\watchdog.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE watchdog.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\watchdog.lst) TABS(2) OBJECT(.\Objects\watchdog.obj)
+
+line level    source
+
+   1          #include "reg52.h"
+   2          #include "watchdog.h"
+   3          
+   4          void WDT_Init(void) {
+   5   1          WDT_CONTR = 0x35;      //·Å¹·£¨Ê¹ÄÜ£©£¬1.14ÃëÒç³ö£¬Èç¹û0x3C£¬2.28ÃëÒç³ö
+   6   1      }
+   7          
+   8          void WDT_Feed(void) {
+   9   1          WDT_CONTR |= 0x10;     //Î¹¹·
+  10   1      }
+  11          
+  12          void WDT_Disable(void) {
+  13   1          WDT_CONTR = 0x00;      //Ë©¹·
+  14   1      }
+  15          
+  16          void WDT_Enable(void) {
+  17   1          WDT_Init();            //½â¹·Éþ
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     24    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
